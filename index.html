@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="DBT Field Guide">
+<title>DBT Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#F5F2EE;--card:#FFFFFF;--text:#1C1917;--muted:#78716C;--border:#E7E3DE;
+  --accent:#1D9E75;--accent-bg:#E8F5F0;--accent-dark:#0F6E56;
+  --warn:#C2410C;--warn-bg:#FFF0EB;
+  --safe-top:env(safe-area-inset-top);--safe-bottom:env(safe-area-inset-bottom);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#141210;--card:#1E1C19;--text:#F0EDE8;--muted:#9C9690;--border:#2A2724;--accent-bg:#0A2A1E;--warn-bg:#2A1208}
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);overflow:hidden}
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh}
+
+/* Header */
+.header{padding:calc(var(--safe-top) + 14px) 20px 14px;background:var(--card);border-bottom:0.5px solid var(--border);flex-shrink:0}
+.header-inner{display:flex;align-items:flex-end;justify-content:space-between}
+.app-title{font-family:var(--serif);font-size:26px;line-height:1;letter-spacing:-0.3px}
+.app-tagline{font-size:12px;color:var(--muted);margin-top:3px}
+.header-badge{background:var(--accent-bg);color:var(--accent-dark);font-size:11px;font-weight:600;padding:4px 9px;border-radius:20px;letter-spacing:0.03em;flex-shrink:0}
+
+/* Search */
+.search-wrap{padding:12px 16px;background:var(--bg);border-bottom:0.5px solid var(--border);flex-shrink:0}
+.search-box{display:flex;align-items:center;background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:9px 12px;gap:8px}
+.search-icon{color:var(--muted);font-size:16px;flex-shrink:0;line-height:1}
+.search-input{flex:1;border:none;background:none;font-size:15px;font-family:var(--sans);color:var(--text);outline:none}
+.search-input::placeholder{color:var(--muted)}
+.search-clear{color:var(--muted);font-size:16px;cursor:pointer;display:none;background:none;border:none;padding:0;line-height:1;font-family:var(--sans)}
+
+/* Scroll container */
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+
+/* Home */
+.home-section{padding:16px 16px 8px}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.card-grid{display:flex;flex-direction:column;gap:8px;padding-bottom:calc(var(--safe-bottom) + 80px)}
+.state-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:opacity 0.1s}
+.state-card:active{opacity:0.7}
+.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.card-body{flex:1;min-width:0}
+.card-title{font-family:var(--serif);font-size:17px;line-height:1.25;margin-bottom:3px}
+.card-meta{font-size:12px;color:var(--muted);line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-arrow{color:var(--muted);font-size:20px;flex-shrink:0;line-height:1}
+
+/* Loading / error */
+.loading{padding:48px 24px;text-align:center;color:var(--muted);font-size:14px;line-height:1.7}
+.loading-spinner{width:28px;height:28px;border:2.5px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Entry view */
+.entry-view{display:none;flex-direction:column;height:100%;position:absolute;inset:0;background:var(--bg);z-index:10}
+.entry-view.show{display:flex}
+.entry-header{padding:calc(var(--safe-top) + 14px) 16px 14px;background:var(--card);border-bottom:0.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;gap:12px}
+.back-btn{background:none;border:none;cursor:pointer;color:var(--accent);font-size:16px;font-weight:600;font-family:var(--sans);padding:0;display:flex;align-items:center;gap:2px;flex-shrink:0;-webkit-appearance:none}
+.back-btn:active{opacity:0.6}
+.entry-title-wrap{flex:1;min-width:0}
+.entry-title{font-family:var(--serif);font-size:18px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.entry-icon-sm{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.entry-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--safe-bottom) + 40px)}
+
+/* Protocol box */
+.protocol-box{margin:16px 16px 10px;background:var(--card);border:0.5px solid var(--border);border-radius:14px;overflow:hidden}
+.protocol-header{background:var(--accent);padding:11px 16px}
+.protocol-header-text{font-size:12px;font-weight:600;color:#fff;letter-spacing:0.05em;text-transform:uppercase}
+.protocol-step{padding:12px 16px;border-bottom:0.5px solid var(--border);display:flex;gap:12px;align-items:flex-start}
+.protocol-step:last-child{border-bottom:none}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--accent-bg);color:var(--accent-dark);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-title{font-size:14px;font-weight:600;margin-bottom:2px;color:var(--text)}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.55}
+.step-quote{font-size:13px;color:var(--text);background:var(--bg);border-left:2px solid var(--accent);border-radius:0 6px 6px 0;padding:6px 10px;margin-top:6px;font-style:italic;line-height:1.5}
+
+/* Collapsible sections */
+.section-block{margin:0 16px 8px}
+.section-toggle{width:100%;background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;-webkit-appearance:none;font-family:var(--sans);transition:border-radius 0.15s}
+.section-toggle.open{border-radius:12px 12px 0 0}
+.toggle-label{font-size:14px;font-weight:600;color:var(--text);text-align:left}
+.toggle-chevron{color:var(--muted);font-size:12px;transition:transform 0.2s;flex-shrink:0}
+.section-toggle.open .toggle-chevron{transform:rotate(180deg)}
+.section-content{display:none;background:var(--card);border:0.5px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:4px 16px 14px}
+.section-content.show{display:block}
+
+/* Content typography */
+.content-body{padding-top:10px}
+.content-body p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:10px}
+.content-body p:last-child{margin-bottom:0}
+.content-body strong{color:var(--text);font-weight:600}
+.content-body em{font-style:italic}
+.content-body h4{font-family:var(--serif);font-size:15px;color:var(--text);margin:14px 0 5px}
+.content-body h4:first-child{margin-top:4px}
+.content-body ul{list-style:none;margin-bottom:10px}
+.content-body ul li{font-size:13px;color:var(--muted);line-height:1.6;padding:2px 0 2px 16px;position:relative}
+.content-body ul li::before{content:"·";position:absolute;left:5px;color:var(--accent);font-size:16px;line-height:1.3}
+.content-body .blockquote{font-size:13px;color:var(--text);background:var(--bg);border-left:2px solid var(--accent);border-radius:0 6px 6px 0;padding:7px 11px;margin:8px 0;font-style:italic;line-height:1.55}
+.content-body .blockquote.warn{border-left-color:var(--warn);background:var(--warn-bg);color:var(--warn)}
+.skill-pill{display:inline-block;font-size:11px;font-weight:600;color:var(--accent-dark);background:var(--accent-bg);padding:3px 8px;border-radius:20px;margin:2px 3px 2px 0}
+
+/* Search results */
+.search-results{padding:16px;padding-bottom:calc(var(--safe-bottom) + 80px)}
+.search-result-item{background:var(--card);border:0.5px solid var(--border);border-radius:10px;padding:13px 14px;margin-bottom:8px;cursor:pointer;transition:opacity 0.1s}
+.search-result-item:active{opacity:0.6}
+.sri-category{font-size:12px;color:var(--accent);margin-bottom:3px;font-weight:500}
+.sri-title{font-size:14px;font-weight:600;margin-bottom:3px}
+.sri-snippet{font-size:12px;color:var(--muted);line-height:1.5}
+.no-results{text-align:center;padding:40px 20px;color:var(--muted);font-size:14px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="header-inner">
+      <div>
+        <div class="app-title">DBT Field Guide</div>
+        <div class="app-tagline">In-the-moment support &amp; reference</div>
+      </div>
+      <div class="header-badge">Personal</div>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" type="search" placeholder="Search skills, states, scripts…" id="search-input" oninput="handleSearch(this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+    </div>
+  </div>
+
+  <div class="scroll" id="main-scroll">
+    <div id="home-view">
+      <div class="home-section">
+        <div class="section-label">What are you experiencing?</div>
+        <div class="card-grid" id="card-grid">
+          <div class="loading">
+            <div class="loading-spinner"></div>
+            Loading field guide…
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="search-view" style="display:none">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <div class="entry-view" id="entry-view">
+    <div class="entry-header">
+      <button class="back-btn" onclick="closeEntry()">‹ Back</button>
+      <div class="entry-title-wrap">
+        <div class="entry-title" id="entry-title"></div>
+      </div>
+      <div class="entry-icon-sm" id="entry-icon-sm"></div>
+    </div>
+    <div class="entry-scroll" id="entry-scroll"></div>
+  </div>
+</div>
+
+<script>
+// ─── Markdown Parser ────────────────────────────────────────────────────────
+
+function parseContentMD(text) {
+  const entries = [];
+  // Split on --- or # at start of line (entry boundary)
+  const rawEntries = text.split(/\n---\n/).map(s => s.trim()).filter(Boolean);
+
+  for (const raw of rawEntries) {
+    const lines = raw.split('\n');
+    let i = 0;
+
+    // First line must be # Title
+    if (!lines[i] || !lines[i].startsWith('# ')) continue;
+    const title = lines[i].replace(/^# /, '').trim();
+    i++;
+
+    // Parse frontmatter-style key: value lines
+    const meta = {};
+    while (i < lines.length && lines[i].includes(': ') && !lines[i].startsWith('#')) {
+      const colonIdx = lines[i].indexOf(': ');
+      const key = lines[i].slice(0, colonIdx).trim();
+      const val = lines[i].slice(colonIdx + 2).trim();
+      meta[key] = val;
+      i++;
+    }
+
+    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const entry = {
+      id,
+      title,
+      emoji: meta.emoji || '📋',
+      color: meta.color || '#F5F5F5',
+      meta: meta.meta || '',
+      triggers: meta.triggers ? meta.triggers.split(',').map(t => t.trim()).filter(Boolean) : [],
+      protocol: [],
+      sections: [],
+      searchText: title + ' ' + (meta.meta || '') + ' ' + (meta.triggers || '')
+    };
+
+    // Parse ## sections
+    let currentSection = null;
+    let currentLines = [];
+
+    const flushSection = () => {
+      if (!currentSection) return;
+      const content = currentLines.join('\n').trim();
+      if (currentSection === 'Protocol') {
+        entry.protocol = parseProtocol(content);
+      } else {
+        entry.sections.push({ label: currentSection, content, html: renderSectionContent(content) });
+      }
+      entry.searchText += ' ' + content;
+    };
+
+    while (i < lines.length) {
+      const line = lines[i];
+      if (line.startsWith('## ')) {
+        flushSection();
+        currentSection = line.replace(/^## /, '').trim();
+        currentLines = [];
+      } else {
+        currentLines.push(line);
+      }
+      i++;
+    }
+    flushSection();
+
+    entries.push(entry);
+  }
+
+  return entries;
+}
+
+function parseProtocol(text) {
+  const steps = [];
+  const lines = text.split('\n');
+  let current = null;
+
+  for (const line of lines) {
+    // Numbered step: "1. **Title** — desc *quote*"
+    const stepMatch = line.match(/^\d+\.\s+\*\*(.+?)\*\*\s*(?:—\s*(.*))?$/);
+    if (stepMatch) {
+      if (current) steps.push(current);
+      const rest = (stepMatch[2] || '').trim();
+      // Extract italic quote from end: *"..."*
+      const quoteMatch = rest.match(/\*"([^"]+)"\s*(?:Not:\s*"([^"]+)")?\*\s*$/);
+      let desc = rest, quote = null;
+      if (quoteMatch) {
+        desc = rest.slice(0, rest.lastIndexOf('*"')).trim();
+        quote = quoteMatch[0].replace(/\*/g, '').trim();
+      }
+      current = { title: stepMatch[1], desc, quote };
+    } else if (current && line.trim()) {
+      // Continuation line
+      current.desc = (current.desc + ' ' + line.trim()).trim();
+    }
+  }
+  if (current) steps.push(current);
+  return steps;
+}
+
+function renderSectionContent(text) {
+  const lines = text.split('\n');
+  let html = '';
+  let i = 0;
+  let inUL = false;
+
+  const closeUL = () => { if (inUL) { html += '</ul>'; inUL = false; } };
+
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Blank line
+    if (!trimmed) { closeUL(); i++; continue; }
+
+    // H4 heading (###  or **bold standalone line**)
+    if (trimmed.startsWith('### ')) {
+      closeUL();
+      html += `<h4>${escHtml(trimmed.slice(4))}</h4>`;
+      i++; continue;
+    }
+
+    // Blockquote
+    if (trimmed.startsWith('> ')) {
+      closeUL();
+      // Collect multi-line blockquotes
+      let bqLines = [];
+      while (i < lines.length && lines[i].trim().startsWith('> ')) {
+        bqLines.push(lines[i].trim().slice(2));
+        i++;
+      }
+      const bqText = bqLines.join('<br>');
+      const isWarn = /don't|avoid|danger|warning|structurally unfair/i.test(bqText);
+      html += `<div class="blockquote${isWarn ? ' warn' : ''}">${inlineFormat(bqText)}</div>`;
+      continue;
+    }
+
+    // Bullet list item
+    if (trimmed.startsWith('- ')) {
+      if (!inUL) { html += '<ul>'; inUL = true; }
+      html += `<li>${inlineFormat(trimmed.slice(2))}</li>`;
+      i++; continue;
+    }
+
+    // Paragraph
+    closeUL();
+    // Collect paragraph lines until blank or special
+    let pLines = [];
+    while (i < lines.length) {
+      const t = lines[i].trim();
+      if (!t || t.startsWith('> ') || t.startsWith('- ') || t.startsWith('### ')) break;
+      pLines.push(t);
+      i++;
+    }
+    if (pLines.length) {
+      html += `<p>${inlineFormat(pLines.join(' '))}</p>`;
+    }
+    continue;
+  }
+  closeUL();
+  return html;
+}
+
+function inlineFormat(text) {
+  return escHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+function escHtml(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// ─── App State ──────────────────────────────────────────────────────────────
+
+let ENTRIES = [];
+
+async function loadContent() {
+  try {
+    const resp = await fetch('content.md');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const text = await resp.text();
+    ENTRIES = parseContentMD(text);
+    renderHome();
+  } catch (err) {
+    document.getElementById('card-grid').innerHTML = `
+      <div class="loading">
+        <strong>Could not load content.md</strong><br><br>
+        Make sure content.md is in the same folder as index.html.<br><br>
+        <small style="font-size:11px;opacity:0.6">${err.message}</small>
+      </div>`;
+  }
+}
+
+// ─── Home ───────────────────────────────────────────────────────────────────
+
+function renderHome() {
+  const grid = document.getElementById('card-grid');
+  if (!ENTRIES.length) {
+    grid.innerHTML = '<div class="loading">No entries found in content.md</div>';
+    return;
+  }
+  grid.innerHTML = ENTRIES.map(e => `
+    <div class="state-card" onclick="openEntry(${JSON.stringify(e.id)})">
+      <div class="card-icon" style="background:${e.color}">${e.emoji}</div>
+      <div class="card-body">
+        <div class="card-title">${escHtml(e.title)}</div>
+        <div class="card-meta">${escHtml(e.meta)}</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  `).join('');
+}
+
+// ─── Entry View ─────────────────────────────────────────────────────────────
+
+function openEntry(id) {
+  const entry = ENTRIES.find(e => e.id === id);
+  if (!entry) return;
+
+  document.getElementById('entry-title').textContent = entry.title;
+  const iconEl = document.getElementById('entry-icon-sm');
+  iconEl.textContent = entry.emoji;
+  iconEl.style.background = entry.color;
+
+  // Protocol steps
+  const steps = entry.protocol.map((p, i) => {
+    const descHtml = p.desc ? `<div class="step-desc">${inlineFormat(p.desc)}</div>` : '';
+    const quoteHtml = p.quote ? `<div class="step-quote">${inlineFormat(p.quote)}</div>` : '';
+    return `<div class="protocol-step">
+      <div class="step-num">${i + 1}</div>
+      <div>
+        <div class="step-title">${escHtml(p.title)}</div>
+        ${descHtml}${quoteHtml}
+      </div>
+    </div>`;
+  }).join('');
+
+  // Collapsible sections
+  const sections = entry.sections.map(s => `
+    <div class="section-block">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <span class="toggle-label">${escHtml(s.label)}</span>
+        <span class="toggle-chevron">▾</span>
+      </button>
+      <div class="section-content">
+        <div class="content-body">${s.html}</div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('entry-scroll').innerHTML = `
+    <div class="protocol-box">
+      <div class="protocol-header">
+        <span class="protocol-header-text">⚡ In-the-moment protocol</span>
+      </div>
+      ${steps || '<div class="protocol-step"><div class="step-desc">No protocol steps defined.</div></div>'}
+    </div>
+    ${sections}
+  `;
+
+  document.getElementById('entry-view').classList.add('show');
+  document.getElementById('entry-scroll').scrollTop = 0;
+}
+
+function closeEntry() {
+  document.getElementById('entry-view').classList.remove('show');
+}
+
+function toggleSection(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('show');
+}
+
+// ─── Search ─────────────────────────────────────────────────────────────────
+
+function handleSearch(val) {
+  document.getElementById('search-clear').style.display = val ? 'block' : 'none';
+
+  if (!val.trim()) {
+    document.getElementById('home-view').style.display = 'block';
+    document.getElementById('search-view').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('home-view').style.display = 'none';
+  document.getElementById('search-view').style.display = 'block';
+
+  const q = val.toLowerCase();
+  const results = [];
+
+  for (const entry of ENTRIES) {
+    // Match on top-level
+    if (entry.searchText.toLowerCase().includes(q)) {
+      results.push({ entry, section: 'Overview', snippet: entry.meta || entry.triggers.slice(0, 3).join(', ') });
+    }
+    // Match on sections
+    for (const s of entry.sections) {
+      const plain = s.content.toLowerCase();
+      if (plain.includes(q)) {
+        const idx = plain.indexOf(q);
+        const snippet = s.content.slice(Math.max(0, idx - 30), idx + 80).replace(/[#*>`\-]/g, '').trim();
+        results.push({ entry, section: s.label, snippet: '…' + snippet + '…' });
+      }
+    }
+  }
+
+  // Deduplicate by entry+section
+  const seen = new Set();
+  const deduped = results.filter(r => {
+    const key = r.entry.id + '|' + r.section;
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  }).slice(0, 20);
+
+  const container = document.getElementById('search-results');
+  if (!deduped.length) {
+    container.innerHTML = `<div class="no-results">No results for "<strong>${escHtml(val)}</strong>"<br><br>Try a skill name, emotion, or situation.</div>`;
+    return;
+  }
+
+  container.innerHTML = deduped.map(r => `
+    <div class="search-result-item" onclick="openEntry(${JSON.stringify(r.entry.id)})">
+      <div class="sri-category">${r.entry.emoji} ${escHtml(r.entry.title)}</div>
+      <div class="sri-title">${escHtml(r.section)}</div>
+      <div class="sri-snippet">${escHtml(r.snippet)}</div>
+    </div>
+  `).join('');
+}
+
+function clearSearch() {
+  const input = document.getElementById('search-input');
+  input.value = '';
+  handleSearch('');
+  input.focus();
+}
+
+// ─── Init ────────────────────────────────────────────────────────────────────
+loadContent();
+</script>
+</body>
+</html>
