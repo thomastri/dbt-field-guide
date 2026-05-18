@@ -345,6 +345,10 @@ function escHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
+function escAttr(text) {
+  return text.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 // ─── App State ──────────────────────────────────────────────────────────────
 
 let ENTRIES = [];
@@ -375,7 +379,7 @@ function renderHome() {
     return;
   }
   grid.innerHTML = ENTRIES.map(e => `
-    <div class="state-card" onclick="openEntry(${JSON.stringify(e.id)})">
+    <div class="state-card" data-id="${e.id}">
       <div class="card-icon" style="background:${e.color}">${e.emoji}</div>
       <div class="card-body">
         <div class="card-title">${escHtml(e.title)}</div>
@@ -384,6 +388,9 @@ function renderHome() {
       <div class="card-arrow">›</div>
     </div>
   `).join('');
+  grid.querySelectorAll('.state-card').forEach(el => {
+    el.addEventListener('click', () => openEntry(el.dataset.id));
+  });
 }
 
 // ─── Entry View ─────────────────────────────────────────────────────────────
@@ -494,12 +501,15 @@ function handleSearch(val) {
   }
 
   container.innerHTML = deduped.map(r => `
-    <div class="search-result-item" onclick="openEntry(${JSON.stringify(r.entry.id)})">
+    <div class="search-result-item" data-id="${r.entry.id}">
       <div class="sri-category">${r.entry.emoji} ${escHtml(r.entry.title)}</div>
       <div class="sri-title">${escHtml(r.section)}</div>
       <div class="sri-snippet">${escHtml(r.snippet)}</div>
     </div>
   `).join('');
+  container.querySelectorAll('.search-result-item').forEach(el => {
+    el.addEventListener('click', () => openEntry(el.dataset.id));
+  });
 }
 
 function clearSearch() {
