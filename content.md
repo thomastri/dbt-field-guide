@@ -324,6 +324,107 @@ If these thoughts become frequent, intense, persistent, or shift toward urges, p
 
 ---
 
+# Dating App Spiral & Modern Dating Fatigue
+emoji: 💔
+color: #FFF1F2
+meta: Ghosting · Left on read · Dating fatigue · Feeling disposable
+triggers: Matches stopping responses suddenly, Dry conversations, Being left on read, Comparing yourself to others on apps, Few matches despite effort, Feeling disposable or replaceable, Good first dates that go nowhere, Ambiguous texting behavior, Seeing others couple up easily, Burnout from repetitive conversations
+
+## Protocol
+1. **Name the trigger** — *"I'm feeling rejected or discouraged right now." Not: "I'm permanently undesirable."*
+2. **Check the Facts** — What objectively happened? What assumptions am I adding? Am I forecasting my entire future from one interaction?
+3. **Regulate before reacting** — Do NOT immediately double text, stalk social media, spiral through old conversations, delete all apps, or seek reassurance. Pause first.
+4. **Reconnect to your actual life** — Gym, friends, hobby, project, walk, creative work, café, gaming, journaling. You need identity outside dating.
+5. **Return to dating from Wise Mind** — *"What would balanced effort look like here?" Not: "How do I guarantee I never get hurt again?"*
+
+## What's Happening
+
+Often a mix of rejection sensitivity, attachment anxiety, loneliness amplification, self-worth becoming tied to desirability, and emotional exhaustion from uncertainty.
+
+A very important truth:
+
+> Dating apps are environments optimized for optionality, not emotional security.
+
+Ambiguity, inconsistency, and ghosting are common features of the environment — not necessarily final judgments of your worth. A lack of response is often timing, emotional availability, app fatigue, competing priorities, or randomness.
+
+## Check the Facts
+
+Dating apps create massive room for mind reading. Common interpretations: "They stopped replying because I'm unattractive." / "I said something wrong." / "Nobody genuinely wants me."
+
+The facts are usually: one person disengaged, one conversation ended, one date lacked compatibility, someone became distracted or avoidant.
+
+Painful? Yes. Proof you are fundamentally unlovable? No.
+
+> Dating apps create repeated micro-rejections that can distort perspective over time.
+
+## Radical Acceptance
+
+You must radically accept several painful realities about modern dating:
+
+- Attraction cannot be controlled
+- Chemistry cannot be forced
+- Ambiguity is unavoidable
+- Rejection is part of the process
+- Emotionally unavailable people exist
+- Good people still mismatch
+- Effort does not guarantee outcome
+
+Radical acceptance reduces the added suffering of "this shouldn't be happening." Fighting reality adds another layer on top of the pain.
+
+## Opposite Action
+
+Dating fatigue often creates urges to isolate, delete apps impulsively, obsess over messages, emotionally give up, or over-invest too early.
+
+Opposite action means: maintaining balanced effort, continuing to socialize outside apps, staying emotionally open, going on dates without over-attaching, keeping your life full outside dating.
+
+> A healthy dating life is usually built on top of an already-functioning life — not used as a replacement for one.
+
+## Build a Life Worth Living
+
+When dating becomes your main source of hope, validation, or only path to happiness — every rejection becomes existential. You want dating to be an important part of life, not the sole emotional pillar holding life up.
+
+That means continuing to build: friendships, hobbies, routines, health, purpose, creativity, identity, community.
+
+> Paradoxically, people often become more attractive when they stop emotionally depending on dating outcomes for survival.
+
+## Self-Validation
+
+You are allowed to feel disappointed, lonely, discouraged, tired, insecure, and frustrated — without jumping to "therefore I'm broken." Dating can genuinely be emotionally taxing, especially for people seeking deeper connection rather than casual stimulation.
+
+## What NOT To Do
+
+- Treating matches as proof of worth
+- Overanalyzing every text
+- Idealizing people before truly knowing them
+- Emotionally attaching to potential or fantasy
+- Comparing your timeline to others
+- Doomscrolling dating content when already low
+- Assuming everyone else has effortless success
+- Making dating your only emotional outlet
+- Catastrophizing temporary dry periods
+
+> Repeated exposure to low-grade rejection can genuinely distort self-perception over time. Take breaks when needed. Burnout is real.
+
+## Self-Talk Scripts
+
+- "Rejection is painful, but it is not identity-defining."
+- "Ambiguity is part of dating."
+- "I do not need universal approval to be lovable."
+- "Someone losing interest does not erase my value."
+- "Dating apps are not objective measurements of worth."
+- "I can tolerate uncertainty without spiraling."
+- "I want mutual enthusiasm, not reluctant attention."
+
+## Long-Term Perspective
+
+Modern dating can create a very specific psychological trap: repeated small disappointments gradually becoming global hopelessness. Especially for thoughtful, relationship-oriented people.
+
+A healthier long-term frame: dating matters, companionship matters, intimacy matters — AND ALSO your entire life is bigger than your current dating status. Attraction is subjective. Connection is probabilistic. Meaningful relationships often take time and repeated exposure.
+
+> Many people who eventually find deeply fulfilling relationships went through long stretches where they genuinely believed it would never happen for them. Human lives change more slowly — and then more suddenly — than our emotions predict.
+>
+> ---
+
 # Impulsivity & Emotional Escape
 emoji: ⚡
 color: #FFF7ED
