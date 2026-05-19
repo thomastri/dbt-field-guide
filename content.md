@@ -422,8 +422,8 @@ Modern dating can create a very specific psychological trap: repeated small disa
 A healthier long-term frame: dating matters, companionship matters, intimacy matters — AND ALSO your entire life is bigger than your current dating status. Attraction is subjective. Connection is probabilistic. Meaningful relationships often take time and repeated exposure.
 
 > Many people who eventually find deeply fulfilling relationships went through long stretches where they genuinely believed it would never happen for them. Human lives change more slowly — and then more suddenly — than our emotions predict.
->
-> ---
+
+---
 
 # Impulsivity & Emotional Escape
 emoji: ⚡
