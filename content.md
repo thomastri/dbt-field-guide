@@ -20,14 +20,14 @@ Usually a mix of shame sensitivity, uncertainty intolerance, emotional reasoning
 This is probably the most important anti-rumination DBT skill. Instead of fusing with the thought, notice the process.
 
 Instead of:
-> "They definitely think I'm awkward."
+> "They definitely think I'm a weirdo."
 
 Shift to:
 > "I notice my brain is generating a rejection story."
 > "I'm replaying the conversation again."
 > "There's anxiety and uncertainty here."
 
-This sounds small, but it interrupts identification with the thought.
+Small, but it interrupts identification with the thought.
 
 ## Check the Facts
 
@@ -38,7 +38,7 @@ Social rumination is full of mind reading and assumptions. Ask:
 - Am I treating feelings as proof?
 - Would I judge a friend this harshly?
 
-**Example:** Fact: "They responded with a short text." Story: "They hate me now." Alternative explanations: busy, distracted, tired, not a big texter, nothing is wrong.
+**Example:** Fact: "They responded with a short text." Story: "So they hate me. I did or said something wrong." Alternative explanations: busy, distracted, tired, not a big texter, nothing is wrong. **Would you react this way if any of your other friends had this texting pattern?**
 
 The goal is NOT forced positivity. It's reducing certainty about catastrophic interpretations.
 
@@ -57,9 +57,9 @@ Opposite action means:
 
 ## One-Mindfully
 
-Rumination splits attention constantly. Use gaming, cooking, showering, walking, editing, cleaning, or exercise — but fully. Not activity + mental courtroom simultaneously.
+Rumination splits attention constantly. Use gaming, cooking, showering, walking, editing, cleaning, or exercise / running — but fully. Not activity + mental courtroom simultaneously.
 
-Instead of lifting weights while replaying a text, try full sensory attention on the workout. DBT treats attention as trainable.
+Instead of running while replaying a text, try full sensory attention on the workout. DBT treats attention as trainable.
 
 ## Radical Acceptance
 
@@ -94,11 +94,11 @@ These reinforce the loop. Rumination rewards itself temporarily.
 - "I'm allowed to stop reviewing this."
 - "The urge to analyze is not the same as usefulness."
 
-## A Note on Your Pattern
+## Additional Notes
 
-You strike as someone very analytical and introspective. That's a strength creatively and intellectually, but it can become socially self-predatory if left unchecked.
+As someone very analytical and introspective, I can be hyperaware. That can become socially self-predatory if left unchecked.
 
-A lot of socially anxious rumination comes from treating human interaction like a system that can be perfected through enough analysis. But good social connection is built from presence, warmth, authenticity, and resilience — not optimization.
+Social connection is built from presence, warmth, authenticity, and resilience — not optimization.
 
 > People generally remember emotional tone far more than micro-details you're dissecting afterward.
 
@@ -116,7 +116,7 @@ triggers: Coming home to an empty apartment, Quiet evenings or weekends, Feeling
 1. **Name the emotion** — Be precise. *"I'm feeling lonely." Not: "My life is empty."*
 2. **Reduce catastrophizing** — Ask: Am I predicting the future? Am I treating this feeling as permanent? What story is my brain adding?
 3. **Regulate the nervous system** — Do something physical first: walk, gym, shower, stretch, breathe. The body often needs intervention before the mind can stabilize.
-4. **One small opposite action** — Choose ONE: text someone, go somewhere public, work at a café, engage in a hobby.
+4. **One small opposite action** — Choose ONE: text someone, go somewhere public, go for a run, read a book, go to the gym, play a game
 5. **Build the next hour** — Don't solve your entire future. Only ask: *"What would make the next hour 5% better?"*
 
 ## What's Happening
@@ -160,7 +160,7 @@ Opposite action means:
 
 The mistake many people make: "Nothing matters unless it fixes the loneliness." That creates emotional starvation.
 
-Instead: café outing, gym, bookstore, hobby groups, creative work, cooking something good, calling family, walking somewhere lively, local events, volunteering, intentional social rituals.
+Instead: gym, bookstore, hobby groups, creative work, cooking, calling someone, walking somewhere lively, local events, intentional social rituals.
 
 These do NOT replace deep connection. But they prevent your emotional world from collapsing inward.
 
@@ -250,9 +250,9 @@ When thoughts become "Why stay alive?" / "Nothing matters." / "What's the point?
 
 ## TIPP Skills
 
-**Temperature:** Cold water on face or ice pack near eyes/cheeks. This activates the dive response and can interrupt emotional escalation.
+**Temperature:** Cold water on face or ice pack near eyes/cheeks. This activates the dive response and can interrupt emotional escalation. You have an ice mask ready in your freezer.
 
-**Intense Exercise:** Even 10 pushups, a brisk walk, a sprint, or stairs can significantly reduce emotional overwhelm. Depression often traps energy physically.
+**Intense Exercise:** Even 10 pushups, pull ups, or stairs can significantly reduce emotional overwhelm. Depression often traps energy physically.
 
 **Paced Breathing:** Longer exhales than inhales. Inhale 4 counts, exhale 6–8 counts. This helps tell the nervous system: "We are not in immediate danger."
 
@@ -280,9 +280,9 @@ Depression urges staying in bed, isolation, doomscrolling, shutting down, abando
 
 > You do not wait to feel motivated. Action often precedes emotional shift.
 
-## Build a "Reasons to Stay" List
+## Build or Rely "Reasons to Stay Alive" List
 
-Do NOT rely on depressed thinking to generate hope. Create this list while emotionally stable. Include:
+Do NOT rely on depressed thinking to generate hope. Contribute to this list while emotionally stable. Include:
 
 - People you care about
 - Future experiences you want
@@ -292,6 +292,10 @@ Do NOT rely on depressed thinking to generate hope. Create this list while emoti
 - Creative projects
 - Simple sensory joys
 - Moments you've genuinely loved before
+
+You already have an album on your phone of "RTSA". Also look at the Tiktoks you've saved.
+
+Think about how much your parents have given up and been through just to give you this life.
 
 > The goal is not "prove life is objectively meaningful." The goal is: reconnect to anchors during emotional storms.
 
@@ -316,11 +320,6 @@ Do NOT rely on depressed thinking to generate hope. Create this list while emoti
 - "My only job right now is to get through this safely."
 - "Feelings change. Nervous systems change. Seasons of life change."
 
-## Important Real-World Note
-
-If these thoughts become frequent, intense, persistent, or shift toward urges, planning, or self-harm — this moves beyond self-help territory. Reaching out to a DBT therapist, licensed therapist, psychiatrist, crisis line, or trusted person is a strength move, not a failure.
-
-> You do not need to carry this entirely alone.
 
 ---
 
